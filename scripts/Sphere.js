@@ -1,5 +1,11 @@
 Sphere = {}
 
+Sphere.toDegrees = function (radians) {
+	return Math.PI * radians / 180;
+}
+Sphere.toRadians = function (degrees) {
+	return 180 * degrees / Math.PI;
+}
 Sphere.toSpherical = function(cartesian){
 	return {lat: Math.asin(cartesian.y/cartesian.length()), lon: Math.atan2(-cartesian.z, cartesian.x)};
 }

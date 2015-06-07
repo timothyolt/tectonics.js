@@ -17,3 +17,13 @@ function point (position, color, size) {
 	mesh.position = position;
 	view.scene.add(mesh);
 }
+
+function pointLatLon (lat,lon) {
+	var cartesian = Sphere.toCartesian({lat:Sphere.toRadians(lat), lon: Sphere.toRadians(lon)});
+	point(cartesian);
+}
+
+function great_circle (eulerPole, color, pointNum) {
+	var pointNum = pointNum || 100;
+	for(i=0;i<pointNum;i++) point(Sphere.getRandomPointAlongGreatCircle(eulerPole), color);
+}
